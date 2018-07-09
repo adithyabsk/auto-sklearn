@@ -197,7 +197,7 @@ class EnsembleSelection(AbstractEnsemble):
         non_null_weights = (weight for  weight in self.weights_ if weight > 0)
         for i, weight in enumerate(non_null_weights):
             predictions[i] *= weight
-        return np.sum(predictions, axis=0)
+        return np.nansum(predictions, axis=0)
 
     def __str__(self):
         return 'Ensemble Selection:\n\tTrajectory: %s\n\tMembers: %s' \
